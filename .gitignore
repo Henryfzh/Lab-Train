@@ -1,0 +1,12 @@
+nanoGPU/__pycache__/
+.DS_Store
+.idea
+.ipynb_checkpoints/
+.vscode
+*.bin
+*.pkl
+*.pt
+*.pyc
+input.txt
+env/
+venv/
