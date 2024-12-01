@@ -24,8 +24,7 @@ sequence_length = 10
 p_heads = 0.666
 
 dataset = GenerateDataset(num_samples, sequence_length, p_heads)
-dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
-
+dataloader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=4)
 from model import GPT, GPTConfig
 
 config = GPTConfig(
@@ -39,7 +38,7 @@ model = GPT(config)
 
 import lightning as L
 from torch.nn import functional as F
-from torch.optim import Adam
+from torch.optim import Adam, SGD
 
 
 class CoinFlipModel(L.LightningModule):
@@ -55,7 +54,7 @@ class CoinFlipModel(L.LightningModule):
         return loss
 
     def configure_optimizers(self):
-        return Adam(self.model.parameters(), lr=5e-4)
+        return SGD(self.model.parameters(), lr=5e-4)
 
 
 pl_model = CoinFlipModel(model)
@@ -66,6 +65,7 @@ trainer = L.Trainer(
     accelerator="gpu",
     devices=1,
     profiler="simple",
+    enable_progress_bar=False,
 )
 
 # Train the model
