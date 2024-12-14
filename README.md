@@ -17,12 +17,12 @@ This experiment aimed to compare the computational efficiency of two popular opt
 
 - **Dataset**: A custom dataset was created (`GenerateDataset`) where each sequence represents a series of coin flips with a probability of heads set to 0.666. The dataset includes 1000 samples with each sequence having a length of 10 flips.
 
-- **Model**: A simplified version of a transformer model (`GPT`) with nanoGPT was used. The model only contains 1 level
+- **Model**: A simplified version of a transformer model (`GPT`) with nanoGPT was used. The model only contains 1 layer for fast training.
 
 ### Optimizer Comparison
 
 - **SGD**: Known for its simplicity, SGD updates parameters based on the gradient of the loss function for each mini-batch.
-- **Adam**: An adaptive learning rate method that computes individual learning rates for different parameters from estimates of first and second moments of the gradients.
+- **Adam**: An adaptive learning rate method that computes individual learning rates for different parameters from estimates of the first and second moments of the gradients.
 
 ### Training Procedure
 
@@ -51,7 +51,7 @@ This experiment aimed to compare the computational efficiency of two popular opt
   ![Bootstrap Mean Distributions](nanoGPT/bootstrap.png "Bootstrap Results")
   The bootstrap distributions showed:
     - SGD's mean time distribution was more concentrated around its mean, indicating more consistent performance.
-    - Adam's distribution was wider, suggesting higher variability in mean times.
+    - Adam's distribution was wider, showing higher variability in mean times.
 
 - **Time**
     ```
