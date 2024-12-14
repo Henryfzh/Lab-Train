@@ -9,7 +9,7 @@ python lightning_train.py
 
 ## Introduction
 
-The aim of this experiment was to compare the computational efficiency of two popular optimization algorithms, Stochastic Gradient Descent (SGD) and Adam, when applied to a simple neural network model trained on a coin flip dataset. The focus was on the time taken by the `optimizer_zero_grad` operation, which resets gradients before backpropagation.
+This experiment aimed to compare the computational efficiency of two popular optimizers, Stochastic Gradient Descent (SGD) and Adam, when applied to a simple neural network model trained on a coin flip dataset. The focus was on the time taken by the `optimizer_zero_grad` operation, which resets gradients before backpropagation.
 
 ## Methodology
 
@@ -17,7 +17,7 @@ The aim of this experiment was to compare the computational efficiency of two po
 
 - **Dataset**: A custom dataset was created (`GenerateDataset`) where each sequence represents a series of coin flips with a probability of heads set to 0.666. The dataset includes 1000 samples with each sequence having a length of 10 flips.
 
-- **Model**: A simplified version of a transformer model (`GPT`) was used, tailored for binary classification to predict the next flip based on the previous sequence.
+- **Model**: A simplified version of a transformer model (`GPT`) with nanoGPT was used. The model only contains 1 level
 
 ### Optimizer Comparison
 
