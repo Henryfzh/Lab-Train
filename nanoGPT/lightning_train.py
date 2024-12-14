@@ -55,9 +55,7 @@ class CoinFlipModel(L.LightningModule):
         elapsed_time = time.time() - start_time
         self.training_times.append(elapsed_time) 
 
-
-def main():
-    def train_model(
+ def train_model(
         optimizer_type, num_samples=1000, sequence_length=10, p_heads=0.666
     ):
         dataset = GenerateDataset(num_samples, sequence_length, p_heads)
@@ -83,14 +81,8 @@ def main():
 
         trainer.fit(model=pl_model, train_dataloaders=dataloader)
         return pl_model.training_times
-
-    sgd_times = train_model("SGD")
-    adam_times = train_model("Adam")
-
-    print(f"sgd_times: {sgd_times}")
-    print(f"adam_times: {adam_times}")
-
-    def plot_time_distributions(sgd_times, adam_times):
+        
+def plot_time_distributions(sgd_times, adam_times):
 
         sns.set(style="whitegrid")
         plt.figure(figsize=(12, 6))
@@ -130,6 +122,15 @@ def main():
         histplot_path = os.path.join("bootstrap.png")
         plt.savefig(histplot_path)
         plt.close()
+
+
+def main():
+
+    sgd_times = train_model("SGD")
+    adam_times = train_model("Adam")
+
+    print(f"sgd_times: {sgd_times}")
+    print(f"adam_times: {adam_times}")
 
     plot_time_distributions(sgd_times, adam_times)
 
