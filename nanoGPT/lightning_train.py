@@ -34,7 +34,7 @@ class CoinFlipModel(L.LightningModule):
         super().__init__()
         self.model = model
         self.optimizer_type = optimizer_type
-        self.training_times = []  # Store timing data
+        self.training_times = []  
 
     def training_step(self, batch, batch_idx):
         inputs = batch[:, :-1]
@@ -50,11 +50,10 @@ class CoinFlipModel(L.LightningModule):
             return Adam(self.model.parameters(), lr=5e-4)
 
     def optimizer_zero_grad(self, *args, **kwargs):
-        # Manually time the zero_grad operation
         start_time = time.time()
         super().optimizer_zero_grad(*args, **kwargs)
         elapsed_time = time.time() - start_time
-        self.training_times.append(elapsed_time)  # Store the time
+        self.training_times.append(elapsed_time) 
 
 
 def main():
