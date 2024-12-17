@@ -41,22 +41,19 @@ This experiment aimed to compare the computational efficiency of two popular opt
 
 ## Results
 - **Time Diff Plot**: 
-  ![Boxplot](nanoGPT/timediff.png "Boxplot Results")
-  The box plot indicated that:
-  - SGD generally showed a tighter distribution of times, suggesting less variability in its `optimizer_zero_grad` operation.
-  - Adam exhibited a broader distribution, potentially due to its additional computations for adaptive learning rates.
+  ![Boxplot](nanoGPT/timediff.png "Time Diff Results")
+  The plot indicated that:
+  - SGD takes less time than Adam, because the mean is a negative number. 
 
 - **Box Plot**: 
   ![Boxplot](nanoGPT/boxplot.png "Boxplot Results")
   The box plot indicated that:
-  - SGD generally showed a tighter distribution of times, suggesting less variability in its `optimizer_zero_grad` operation.
-  - Adam exhibited a broader distribution, potentially due to its additional computations for adaptive learning rates.
+  - SGD and Adam have similar variety. 
 
 - **Bootstrap Analysis**: 
   ![Bootstrap Mean Distributions](nanoGPT/bootstrap.png "Bootstrap Results")
   The bootstrap distributions showed:
-    - SGD's mean time distribution was more concentrated around its mean, indicating more consistent performance.
-    - Adam's distribution was wider, showing higher variability in mean times.
+  - The results match our conclusion from the time diff plot, which is SGD generally faster than Adam.
 
 - **Time**
     ```
