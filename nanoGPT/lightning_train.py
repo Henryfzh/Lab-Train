@@ -55,7 +55,7 @@ class CoinFlipModel(L.LightningModule):
         elapsed_time = time.time() - start_time
         self.training_times.append(elapsed_time) 
 
- def train_model(
+def train_model(
         optimizer_type, num_samples=1000, sequence_length=10, p_heads=0.666
     ):
         dataset = GenerateDataset(num_samples, sequence_length, p_heads)
