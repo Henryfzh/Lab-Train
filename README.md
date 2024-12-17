@@ -40,6 +40,11 @@ This experiment aimed to compare the computational efficiency of two popular opt
 - **Bootstrap Distribution**: A histogram was created to visualize the distribution of mean times from bootstrap resampling, allowing for comparison between SGD and Adam.
 
 ## Results
+- **Time Diff Plot**: 
+  ![Boxplot](nanoGPT/timediff.png "Boxplot Results")
+  The box plot indicated that:
+  - SGD generally showed a tighter distribution of times, suggesting less variability in its `optimizer_zero_grad` operation.
+  - Adam exhibited a broader distribution, potentially due to its additional computations for adaptive learning rates.
 
 - **Box Plot**: 
   ![Boxplot](nanoGPT/boxplot.png "Boxplot Results")
