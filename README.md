@@ -49,7 +49,7 @@ This experiment aimed to compare the computational efficiency of two popular opt
 - **Box Plot**: 
   ![Boxplot](nanoGPT/boxplot.png "Boxplot Results")
   The box plot indicated that:
-  - SGD and Adam have similar variety in general. 
+  - SGD has a slightly larger variety than Adam. 
 
 - **Bootstrap Analysis**: 
   ![Bootstrap Mean Distributions](nanoGPT/bootstrap.png "Bootstrap Results")
